@@ -10,7 +10,15 @@ const messages = require('./DataBase/Model/messageModel');
 // Create server
 const app = express()
 
-app.use(cors())
+const corsOptions = {
+  origin: 'https://social-chat-front-end.vercel.app',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true,
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json())
 // establish connection between router and server
 app.use(router)
@@ -18,13 +26,15 @@ app.use(router)
 
 const http = require('http').Server(app);
 
-const PORT = 4000 || process.env.PORT
+const PORT = process.env.PORT || 4000;
 
-// add Socket.io to the project to create a real-time connection.
+
+
 const socketIO = require('socket.io')(http, {
     cors: {
         
         origin:"https://social-chat-front-end.vercel.app"
+        // origin:"http://localhost:3000"
     }
 });
 
@@ -49,12 +59,11 @@ socketIO.on('connection', (socket) => {
     socket.on('typing', (data) => socket.broadcast.emit('typingResponse', data));
     
 
-     //Listens when a new user joins the server
+     
   socket.on('newUser', (data) => {
-    //Adds the new user to the list of users
+    
     users.push(data);
-    // console.log(users);
-    //Sends the list of users to the client
+    
     socketIO.emit('newUserResponse', users);
     console.log(users);
   });
