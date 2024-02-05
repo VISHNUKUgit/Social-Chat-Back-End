@@ -37,7 +37,7 @@ socketIO.on('connection', (socket) => {
     console.log(`${socket.id} user just connected!`)  
 
     socket.on("message", async(data) => {
-        console.log(data);
+        // console.log(data);
         const newMessage = new messages({
           sender: data.sender,
           recipient: data.recipient,
