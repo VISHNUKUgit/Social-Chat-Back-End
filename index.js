@@ -24,7 +24,7 @@ const PORT = 4000 || process.env.PORT
 const socketIO = require('socket.io')(http, {
     cors: {
         
-        origin:"http://localhost:3000"
+        origin:"https://social-chat-front-end.vercel.app"
     }
 });
 
