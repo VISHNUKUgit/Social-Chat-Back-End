@@ -108,7 +108,7 @@ exports.getAllUsers = async (req, res) => {
   console.log("inside getAllUsers controller");
   const searchValue = req.query.search;
   const mainUser = req.payload
-console.log(mainUser);
+// console.log(mainUser);
   const query = {
     username: { $regex: searchValue, $options: "i" }
   };

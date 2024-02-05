@@ -9,7 +9,7 @@ exports.getUsersMessages = async (req, res) => {
     try {
        
         const allMessages= await messages.find({ $or: [{ sender, recipient }, { sender: recipient, recipient: sender }] });
-console.log(allMessages);
+// console.log(allMessages);
 // const sortedMessages = allMessages.sort((a, b) => a.timestamp - b.timestamp);
 // const limitedMessages = sortedMessages.slice(0, limit); // Adjust 'limit' as needed
 
