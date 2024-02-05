@@ -26,7 +26,7 @@ app.use(router)
 
 const http = require('http').Server(app);
 
-const PORT = process.env.PORT || 4000;
+const PORT =  4000 || process.env.PORT;
 
 
 
