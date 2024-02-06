@@ -10,7 +10,6 @@ const messages = require('./DataBase/Model/messageModel');
 // Create server
 const app = express()
 
-
 app.use(cors());
 app.use(express.json())
 // establish connection between router and server

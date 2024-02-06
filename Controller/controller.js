@@ -75,32 +75,6 @@ exports.login = async (req, res) => {
 };
 
 
-// Controller function for get All Users
-// exports.getAllUsers = async (req, res) => {
-//     console.log("inside getAllUsers controller");
-//     const searchValue = req.query.search
-//     // console.log(searchValue);
-//     const query = {
-//         username:{$regex:searchValue ,$options:"i"}
-//     }
-
-//     try {
-//         // Find all existing users in the database
-//         const allExistingUsers = await users.find(query);
-
-//         if (allExistingUsers.length > 0) {
-//             // If users are found, send them as a JSON response with a 200 status code
-//             res.status(200).json(allExistingUsers);
-//         } else {
-//             // If no users are found, send a 404 status code with an empty array
-//             res.status(404).json([]);
-//         }
-//     } catch (error) {
-//         // Handle any errors that occur during the database query or processing
-//         console.error(error);
-//         res.status(500).json({ error: "Internal Server Error" });
-//     }
-// };
 
 
 
