@@ -1,5 +1,5 @@
 const express = require('express')
-const { register, login, getAllUsers } = require('../Controller/controller')
+const { register, login, getAllUsers, googleAuth } = require('../Controller/controller')
 const jwtMiddleware = require('../Middleware/jwtMiddleware')
 const { getUsersMessages } = require('../Controller/messageController')
 const router  = new express.Router()
@@ -10,6 +10,9 @@ router.post('/user/register',register)
 
 // API endpoint for user login
 router.post('/user/login',login)
+
+// API endpoint for googleAuth
+router.post('/user/googleAuth',googleAuth)
 
 // API endpoint for user login
 router.get('/existingusers',jwtMiddleware,getAllUsers)
