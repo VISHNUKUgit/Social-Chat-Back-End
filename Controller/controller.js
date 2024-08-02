@@ -2,7 +2,7 @@ const messages = require("../DataBase/Model/messageModel");
 const users = require("../DataBase/Model/userModel");
 const jwt = require('jsonwebtoken')
 exports.register = async (req, res) => {
-  
+
   const { username, email, password } = req.body;
   try {
     const existingUser = await users.findOne({ email });
@@ -40,7 +40,7 @@ exports.register = async (req, res) => {
 
 // Controller function for user login
 exports.login = async (req, res) => {
-  
+
   // Destructure the email and password from the request body
   const { email, password } = req.body;
 
@@ -76,8 +76,8 @@ exports.login = async (req, res) => {
 
 
 exports.googleAuth = async (req, res) => {
-console.log("inside google");
-  const { username, password, email } = req.body;
+  console.log("inside google");
+  const { username, password, email,picture } = req.body;
   try {
     // Check if the user already exists
     const existingUser = await users.findOne({ email, password });
@@ -100,8 +100,8 @@ console.log("inside google");
     }
 
   }
-  catch {
-
+  catch (error) {
+    console.log(error);
   }
 
 }
